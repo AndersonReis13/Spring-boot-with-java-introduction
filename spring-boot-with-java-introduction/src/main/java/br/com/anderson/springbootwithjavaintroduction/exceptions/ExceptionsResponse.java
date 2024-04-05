@@ -19,23 +19,12 @@ public class ExceptionsResponse implements Serializable {
         return timeInstant;
     }
 
-    public void setTimeInstant(Date timeInstant) {
-        this.timeInstant = timeInstant;
-    }
-
     public String getMessage() {
         return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     public String getDetail() {
         return Detail;
     }
 
-    public void setDetail(String detail) {
-        Detail = detail;
-    }
 }
