@@ -24,8 +24,24 @@ public class PersonController {
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Person> findById(){
+    public List<Person> findAll(){
         return personService.findAll();
     }
 
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Person create(@RequestBody Person person){
+        return personService.create(person);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Person update(@RequestBody Person person){
+        return personService.update(person);
+    }
+
+    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    public void delete(@PathVariable(value = "id") String id){
+        personService.delete(id);
+    }
 }
