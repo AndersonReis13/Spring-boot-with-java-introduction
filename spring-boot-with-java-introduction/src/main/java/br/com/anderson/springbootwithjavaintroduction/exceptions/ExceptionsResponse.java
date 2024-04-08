@@ -7,12 +7,12 @@ public class ExceptionsResponse implements Serializable {
 
     private Date timeInstant;
     private String message;
-    private String Detail;
+    private String detail;
 
     public ExceptionsResponse(Date timeInstant, String message, String detail) {
         this.timeInstant = timeInstant;
         this.message = message;
-        Detail = detail;
+        this.detail = detail;
     }
 
     public Date getTimeInstant() {
@@ -24,7 +24,7 @@ public class ExceptionsResponse implements Serializable {
     }
 
     public String getDetail() {
-        return Detail;
+        return detail;
     }
 
 }
