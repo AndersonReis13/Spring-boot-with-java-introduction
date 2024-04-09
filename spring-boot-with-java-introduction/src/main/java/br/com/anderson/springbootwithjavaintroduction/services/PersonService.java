@@ -1,6 +1,7 @@
 package br.com.anderson.springbootwithjavaintroduction.services;
 
 import br.com.anderson.springbootwithjavaintroduction.controllers.PersonController;
+import br.com.anderson.springbootwithjavaintroduction.data.vo.v1.PersonVo;
 import br.com.anderson.springbootwithjavaintroduction.entites.Person;
 import br.com.anderson.springbootwithjavaintroduction.exceptions.ResourceNotFoundExceptions;
 import br.com.anderson.springbootwithjavaintroduction.repositories.PersonRepository;
@@ -20,14 +21,14 @@ public class PersonService{
     private PersonRepository repository;
     private Logger logger = Logger.getLogger(PersonController.class.getName());
 
-    public List<Person> findAll(){
+    public List<PersonVo> findAll(){
 
         logger.info("Finding all people!");
 
         return repository.findAll();
     }
 
-    public Person findById(Long id){
+    public PersonVo findById(Long id){
         logger.info("Finding one person");
 
 
@@ -35,13 +36,13 @@ public class PersonService{
                         .orElseThrow(()-> new ResourceNotFoundExceptions("Not found person ID!"));
     }
 
-    public Person create(Person person){
+    public PersonVo create(PersonVo person){
         logger.info("Creating person");
 
         return repository.save(person);
     }
 
-    public Person update(Person person){
+    public PersonVo update(PersonVo person){
       logger.info("Updating person");
 
         var entity = repository.findById(person.getId())

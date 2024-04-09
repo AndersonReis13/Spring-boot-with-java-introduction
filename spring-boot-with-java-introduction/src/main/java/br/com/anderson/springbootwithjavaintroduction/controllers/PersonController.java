@@ -1,6 +1,6 @@
 package br.com.anderson.springbootwithjavaintroduction.controllers;
 
-import br.com.anderson.springbootwithjavaintroduction.entites.Person;
+import br.com.anderson.springbootwithjavaintroduction.data.vo.v1.PersonVo;
 import br.com.anderson.springbootwithjavaintroduction.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,22 +18,22 @@ public class PersonController {
     private PersonService personService;
 
     @GetMapping(value = "{id}")
-    public Person findById(@PathVariable(value = "id") String id) throws Exception{
+    public PersonVo findById(@PathVariable(value = "id") String id) throws Exception{
             return personService.findById(Long.valueOf(id));
     }
 
     @GetMapping
-    public List<Person> findAll(){
+    public List<PersonVo> findAll(){
         return personService.findAll();
     }
 
     @PostMapping
-    public Person create(@RequestBody Person person){
+    public PersonVo create(@RequestBody PersonVo person){
         return personService.create(person);
     }
 
     @PutMapping
-    public Person update(@RequestBody Person person){
+    public PersonVo update(@RequestBody PersonVo person){
         return personService.update(person);
     }
 
