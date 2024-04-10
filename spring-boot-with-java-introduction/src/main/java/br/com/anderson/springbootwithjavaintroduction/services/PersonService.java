@@ -2,16 +2,12 @@ package br.com.anderson.springbootwithjavaintroduction.services;
 
 import br.com.anderson.springbootwithjavaintroduction.controllers.PersonController;
 import br.com.anderson.springbootwithjavaintroduction.data.vo.v1.PersonVo;
-import br.com.anderson.springbootwithjavaintroduction.entites.Person;
 import br.com.anderson.springbootwithjavaintroduction.exceptions.ResourceNotFoundExceptions;
 import br.com.anderson.springbootwithjavaintroduction.repositories.PersonRepository;
-import org.aspectj.weaver.ast.Var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 @Service

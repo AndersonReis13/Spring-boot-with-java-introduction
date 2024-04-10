@@ -18,7 +18,7 @@ public class DozerMapper {
     public static <O,D> List<D> parseListObject(List<O> origin, Class<D> destiny){
         List<D> destinyList = new ArrayList<>();
         for(O o : origin){
-            destinyList.add(mapper.map(origin, destiny));
+            destinyList.add(mapper.map(o, destiny));
         }
         return destinyList;
     }
