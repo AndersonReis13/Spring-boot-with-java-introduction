@@ -1,8 +1,8 @@
 package br.com.anderson.springbootwithjavaintroduction.mapper;
 
 import br.com.anderson.springbootwithjavaintroduction.data.vo.v1.PersonVo;
-import br.com.anderson.springbootwithjavaintroduction.mock.MockPersonTest;
-import br.com.anderson.springbootwithjavaintroduction.mock.Person;
+import br.com.anderson.springbootwithjavaintroduction.model.MockPersonTest;
+import br.com.anderson.springbootwithjavaintroduction.model.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

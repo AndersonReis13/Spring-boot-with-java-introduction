@@ -1,4 +1,4 @@
-package br.com.anderson.springbootwithjavaintroduction.mock;
+package br.com.anderson.springbootwithjavaintroduction.model;
 
 import jakarta.persistence.*;
 
