@@ -3,11 +3,11 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/rest_with_spring_anderson?useTimezone=true&serverTimezone=UTC
     username: root
-    password: 1234567
+    password:
   jpa:
     hibernate:
       ddl-auto: none
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-    show-sql: false
+    show-sql: true
