@@ -17,22 +17,29 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @GetMapping(value = "{id}")
+    @GetMapping(value = "{id}",
+    produces = {MediaType.APPLICATION_JSON_VALUE,
+                MediaType.APPLICATION_XML_VALUE})
     public PersonVo findById(@PathVariable(value = "id") String id) throws Exception{
             return personService.findById(Long.valueOf(id));
     }
 
-    @GetMapping
+    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE,
+                            MediaType.APPLICATION_XML_VALUE})
     public List<PersonVo> findAll(){
         return personService.findAll();
     }
 
-    @PostMapping
+    @PostMapping(
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public PersonVo create(@RequestBody PersonVo person){
         return personService.create(person);
     }
 
-    @PutMapping
+    @PutMapping(
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public PersonVo update(@RequestBody PersonVo person){
         return personService.update(person);
     }
