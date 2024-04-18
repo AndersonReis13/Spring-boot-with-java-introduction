@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class DozerMapperTest {
 
         MockPersonTest inputObject;
-
     @BeforeEach
     public void setUp() {
         inputObject = new MockPersonTest();
@@ -22,7 +21,7 @@ class DozerMapperTest {
     @Test
     public void parseEntityToVOTest() {
         PersonVo output = DozerMapper.parseObject(inputObject.mockEntity(), PersonVo.class);
-        assertEquals(Long.valueOf(0L), output.getId());
+        assertEquals(Long.valueOf(0L), output.getKey());
         assertEquals("First Name Test0", output.getFirstName());
         assertEquals("Last Name Test0", output.getLastName());
         assertEquals("Addres Test0", output.getAddress());
@@ -59,8 +58,8 @@ class DozerMapperTest {
 
     @Test
     public void parseVOToEntityTest() {
-        PersonVo output = DozerMapper.parseObject(inputObject.mockVO(), PersonVo.class);
-        assertEquals(Long.valueOf(0L), output.getId());
+        PersonVo output = DozerMapper.parseObject(inputObject.mockEntity(), PersonVo.class);
+        assertEquals(Long.valueOf(0L), output.getKey());
         assertEquals("First Name Test0", output.getFirstName());
         assertEquals("Last Name Test0", output.getLastName());
         assertEquals("Addres Test0", output.getAddress());
