@@ -7,6 +7,8 @@ import br.com.anderson.springbootwithjavaintroduction.mapper.DozerMapper;
 import br.com.anderson.springbootwithjavaintroduction.model.Person;
 import br.com.anderson.springbootwithjavaintroduction.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,15 +28,18 @@ public class PersonService{
         return DozerMapper.parseListObject(repository.findAll(), PersonVo.class);
     }
 
-    public PersonVo findById(Long id){
+    public PersonVo findById(Long id) throws Exception {
         logger.info("Finding one person");
 
 
          var entity = repository.findById(id)
                         .orElseThrow(()-> new ResourceNotFoundExceptions("Not found person ID!"));
 
-         return DozerMapper.parseObject(entity, PersonVo.class);
+         PersonVo vo = DozerMapper.parseObject(entity, PersonVo.class);
+            vo.add(linkTo(methodOn(PersonController.class).findById(String.valueOf(id))).withSelfRel());
+            return vo;
     }
+
 
     public PersonVo create(PersonVo person){
         logger.info("Creating person");
